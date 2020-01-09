@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
+#include <Box2D/Box2D.h>
 
 /* Class that acts as the game engine. Wrapper class.*/
 class Game
@@ -19,6 +20,10 @@ private:
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
+
+	// Create gravity and world, then assign gravity to world
+	b2Vec2 gravity(0.f, 9.81f);
+	b2World world(gravity);
 
 	//Mouse positions
 	sf::Vector2i mousePosWindow;
